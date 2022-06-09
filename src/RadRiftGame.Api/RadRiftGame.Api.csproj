@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>RadRiftGame</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RadRiftGame.Contracts\RadRiftGame.Contracts.csproj" />
+      <ProjectReference Include="..\RadRiftGame.Domain\RadRiftGame.Domain.csproj" />
+      <ProjectReference Include="..\RadRiftGame.Infrastructure\RadRiftGame.Infrastructure.csproj" />
+    </ItemGroup>
+
+
+</Project>

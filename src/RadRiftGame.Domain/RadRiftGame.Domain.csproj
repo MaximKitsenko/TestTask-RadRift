@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+<!--        <ImplicitUsings>enable</ImplicitUsings>-->
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RadRiftGame.Contracts\RadRiftGame.Contracts.csproj" />
+      <ProjectReference Include="..\RadRiftGame.Infrastructure\RadRiftGame.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Events" />
+    </ItemGroup>
+
+</Project>

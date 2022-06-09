@@ -10,6 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RadRiftGame.Contracts.Commands;
+using RadRiftGame.Contracts.Events;
+using RadRiftGame.Domain;
+using RadRiftGame.Domain.Aggregates;
+using RadRiftGame.Domain.Projections;
+using RadRiftGame.Infrastructure;
 
 namespace RadRiftGame
 {
@@ -25,6 +31,22 @@ namespace RadRiftGame
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var bus = new FakeBus();
+            var storage = new EventStore(bus);
+            var rep = new Repository<GameRoom>(storage);
+            var commands = new GameRoomCommandHandlers(rep);
+            
+            // Commands
+            bus.RegisterHandler<CreateGameRoom>(commands.Handle);
+            bus.RegisterHandler<JoinGameRoom>(commands.Handle);
+            
+            // Projections
+            var eventsCountDetailedByOneMinuteProjection = new GameRoomsWithTwoPlayersProjection();
+            bus.RegisterHandler<UserJoinedGameRoom>(eventsCountDetailedByOneMinuteProjection.Handle);
+            
+            // Dependencies
+            services.AddSingleton<FakeBus>(bus);
+            services.AddSingleton<IReadModelFacade>(new ReadModelFacade());
             services.AddControllers();
         }
 

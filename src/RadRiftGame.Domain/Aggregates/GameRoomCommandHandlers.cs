@@ -23,5 +23,11 @@ namespace RadRiftGame.Domain.Aggregates
             item.EnterUser(message.SysInfo, message.GameId, message.UserId);
             _repository.Save(item, item.Version );
         }
+        public void Handle(DecreaseUserHealth message)
+        {
+            var item = _repository.GetById(message.GameId.Id);
+            item.DecreaseHealth(message.SysInfo, message.GameId, message.UserId, message.HealthDec);
+            _repository.Save(item, item.Version );
+        }
     }
 }

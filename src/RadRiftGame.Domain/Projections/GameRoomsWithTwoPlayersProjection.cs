@@ -4,19 +4,20 @@ using RadRiftGame.Infrastructure;
 namespace RadRiftGame.Domain.Projections
 {
     public class GameRoomsWithTwoPlayersProjection :
-        Handles<UserJoinedGameRoom>
+        Handles<UserJoinedGameRoom>,
+        Handles<GameRoomCreated>
     {
 
         public void Handle(UserJoinedGameRoom message)
         {
-            InMemoryMinuteStore
-                .Index[message.GameRoomId] += 1;
+            InMemoryKvStore
+                .RoomUsersCountIndex[message.GameRoomId] += 1;
         }
 
         public void Handle(GameRoomCreated message)
         {
-            InMemoryMinuteStore
-                .Index[message.Id] = 1;
+            InMemoryKvStore
+                .RoomUsersCountIndex[message.Id] = 1;
         }
     }
 }

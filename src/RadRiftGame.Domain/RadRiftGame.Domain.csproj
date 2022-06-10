@@ -11,8 +11,4 @@
       <ProjectReference Include="..\RadRiftGame.Infrastructure\RadRiftGame.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Events" />
-    </ItemGroup>
-
 </Project>

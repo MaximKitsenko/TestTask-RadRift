@@ -49,5 +49,6 @@ namespace RadRiftGame.Infrastructure
                 ThreadPool.QueueUserWorkItem(x => handler1(@event));
             }
         }
+
     }
 }

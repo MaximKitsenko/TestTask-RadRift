@@ -1,10 +1,11 @@
+using System;
 using RadRiftGame.Contracts.ValueObjects;
 
 namespace RadRiftGame.Models.GameController
 {
     public class JoinGameRoomRequest
     {
-        public GameRoomId GameRoomId { get; set; }
-        public UserId UserId { get; set; }
+        public Guid GameRoomId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

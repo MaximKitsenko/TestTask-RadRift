@@ -12,10 +12,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RadRiftGame.Contracts.Commands;
 using RadRiftGame.Contracts.Events;
+using RadRiftGame.Contracts.ValueObjects;
 using RadRiftGame.Domain;
 using RadRiftGame.Domain.Aggregates;
 using RadRiftGame.Domain.Projections;
+using RadRiftGame.Domain.Services;
 using RadRiftGame.Infrastructure;
+using GameProcessService = RadRiftGame.Domain.Services.GameProcessService;
 
 namespace RadRiftGame
 {
@@ -39,14 +42,22 @@ namespace RadRiftGame
             // Commands
             bus.RegisterHandler<CreateGameRoom>(commands.Handle);
             bus.RegisterHandler<JoinGameRoom>(commands.Handle);
+            bus.RegisterHandler<DecreaseUserHealth>(commands.Handle);
             
             // Projections
             var eventsCountDetailedByOneMinuteProjection = new GameRoomsWithTwoPlayersProjection();
             bus.RegisterHandler<UserJoinedGameRoom>(eventsCountDetailedByOneMinuteProjection.Handle);
-            
+            bus.RegisterHandler<GameRoomCreated>(eventsCountDetailedByOneMinuteProjection.Handle);
+
+            var eventsCountDetailedByOneMinuteProjectionExtended = new GameRoomsWithTwoPlayersProjectionExtended();
+            bus.RegisterHandler<UserJoinedGameRoom>(eventsCountDetailedByOneMinuteProjectionExtended.Handle);
+            bus.RegisterHandler<GameRoomCreated>(eventsCountDetailedByOneMinuteProjectionExtended.Handle);
+
             // Dependencies
             services.AddSingleton<FakeBus>(bus);
             services.AddSingleton<IReadModelFacade>(new ReadModelFacade());
+            services.AddSingleton<IRepository<GameRoom>>(rep);
+            services.AddSingleton<IGameProcessService, GameProcessService>();//(new GameProcessService(services.));
             services.AddControllers();
         }
 

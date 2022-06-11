@@ -14,7 +14,7 @@ namespace RadRiftGame.Domain.Aggregates
 
         public void Handle(CreateGameRoom message)
         {
-            var item = new GameRoom(message.GameId, message.Name, message.SysInfo.UserId);
+            var item = new GameRoom(message.GameId, message.Name, message.HostUserId);
             _repository.Save(item, -1);
         }
         public void Handle(JoinGameRoom message)

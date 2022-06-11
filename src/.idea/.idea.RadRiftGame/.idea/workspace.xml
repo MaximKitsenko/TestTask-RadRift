@@ -25,16 +25,17 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ec76717981de4b349ef4846ff90e9492551a0/9/ConfigureBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RadRiftGame.Domain/Projections/GameRoomsWithTwoPlayersProjection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/94ff83bbd4f34d52a6bb3c424720b0cf29588/21/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RadRiftGame.Domain/Projections/GameRoomsPlayersCountProjection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Pegasis.Run/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/94ff83bbd4f34d52a6bb3c424720b0cf29588/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab706c87cf6244448e6824280ecd4ef6503990/8B/UpdateDelegates.Generated.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b7b77e6034f4f36b6c39c10ef27b2c891e590/80/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b7b77e6034f4f36b6c39c10ef27b2c891e590/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadRiftGame.Contracts/ValueObjects/SysInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadRiftGame.Infrastructure/Handles.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadRiftGame.Contracts/ValueObjects/UserId.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e5727829617e45b2b54c64f62c5c942717d7a8/187/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadRiftGame.Domain/Aggregates/GameRoomCommandHandlers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8bc01b6d9b994b12a201cfa7cc60cdff2e590/7/ConcurrentDictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b7b77e6034f4f36b6c39c10ef27b2c891e590/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,6 +53,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34993446" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30013105" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -143,7 +145,8 @@
       <option name="presentableId" value="Default" />
       <updated>1653928777087</updated>
       <workItem from="1653928796911" duration="34000" />
-      <workItem from="1653928925876" duration="42932000" />
+      <workItem from="1653928925876" duration="47586000" />
+      <workItem from="1654955347556" duration="10981000" />
     </task>
     <servers />
   </component>
@@ -161,26 +164,26 @@
       <breakpoints>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/RadRiftGame.Api/Controllers/GameController.cs</url>
-          <line>57</line>
+          <line>58</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Api\Controllers\GameController.cs" initialLine="46" containingFunctionPresentation="method 'JoinGameRoom'">
             <startOffsets>
-              <option value="1866" />
+              <option value="1985" />
             </startOffsets>
             <endOffsets>
-              <option value="1868" />
+              <option value="1987" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/RadRiftGame.Api/Controllers/GameController.cs</url>
-          <line>74</line>
+          <line>75</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Api\Controllers\GameController.cs" initialLine="56" containingFunctionPresentation="method 'JoinGameRoom'">
             <startOffsets>
-              <option value="2298" />
+              <option value="2418" />
             </startOffsets>
             <endOffsets>
-              <option value="2417" />
+              <option value="2537" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
@@ -200,29 +203,16 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/RadRiftGame.Domain/Aggregates/GameRoom.cs</url>
-          <line>56</line>
+          <line>52</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Aggregates\GameRoom.cs" initialLine="29" containingFunctionPresentation="method 'EnterUser'">
             <startOffsets>
-              <option value="1550" />
+              <option value="1545" />
             </startOffsets>
             <endOffsets>
-              <option value="1600" />
+              <option value="1595" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/RadRiftGame.Domain/Aggregates/GameRoom.cs</url>
-          <line>72</line>
-          <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Aggregates\GameRoom.cs" initialLine="57" containingFunctionPresentation="method 'DecreaseHealth'">
-            <startOffsets>
-              <option value="2230" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2293" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

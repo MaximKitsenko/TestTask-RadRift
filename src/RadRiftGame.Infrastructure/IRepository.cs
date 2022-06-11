@@ -6,6 +6,5 @@ namespace RadRiftGame.Infrastructure
     {
         void Save(AggregateRoot aggregate, int expectedVersion);
         T GetById(Guid id);
-        
     }
 }

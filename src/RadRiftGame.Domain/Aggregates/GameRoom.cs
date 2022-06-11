@@ -1,18 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using RadRiftGame.Contracts.Events;
 using RadRiftGame.Contracts.ValueObjects;
 using RadRiftGame.Domain.Services;
+using RadRiftGame.Domain.Services.Db;
+using RadRiftGame.Domain.Services.ReportService;
 using RadRiftGame.Infrastructure;
 
 namespace RadRiftGame.Domain.Aggregates
 {
-    public enum GameStatus
-    {
-        None = 0,
-        Created = 1,
-        Started = 2,
-        Stoped = 3
-    }
     public class GameRoom : AggregateRoot
     {
         private string _name;
@@ -31,7 +27,7 @@ namespace RadRiftGame.Domain.Aggregates
             this._hostHealth = 10;
             this._status = GameStatus.Created;
         }
-        
+
         public void Apply(GameStopped e)
         {
             this._status = GameStatus.Stoped;
@@ -62,19 +58,26 @@ namespace RadRiftGame.Domain.Aggregates
 
         public void DecreaseHealth(SysInfo sysInfo, GameRoomId gameRoomId, UserId userId, int health)
         {
+            var eventsList = new List<Event>();
+            
+            if (this._status != GameStatus.Started)
+                return;
             if (userId.Equals(this._player1) && this._player1Health <= 0)
                 return;
             if (userId.Equals(this._host) && this._hostHealth <= 0)
                 return;
+            if (!userId.Equals(this._host) && !userId.Equals(this._player1))
+                return;
+            
+            eventsList.Add(new UserHealsDecreased(sysInfo, gameRoomId, userId, health));
 
-            this.ApplyChange(new UserHealsDecreased(sysInfo, gameRoomId, userId, health));
-            
             if (userId.Equals(this._player1) && this._player1Health-health <=0)
-                this.ApplyChange(new GameStopped(sysInfo, gameRoomId, userId));
+                eventsList.Add(new GameStopped(sysInfo, gameRoomId, userId));
             if (userId.Equals(this._host) && this._hostHealth -health<= 0)
-                this.ApplyChange(new GameStopped(sysInfo, gameRoomId, userId));
-            
-            
+                eventsList.Add(new GameStopped(sysInfo, gameRoomId, userId));
+
+            foreach (var @event in eventsList)
+                this.ApplyChange(@event);
         }
 
         public override Guid Id
@@ -89,7 +92,7 @@ namespace RadRiftGame.Domain.Aggregates
 
         public GameRoom(GameRoomId id, string name, UserId userId)
         {
-            ApplyChange(new GameRoomCreated(id, name, SysInfo.CreateSysInfo(userId)));
+            ApplyChange(new GameRoomCreated(id, name, userId, SysInfo.CreateSysInfo()));
         }
 
         public override string ToString()
@@ -97,5 +100,13 @@ namespace RadRiftGame.Domain.Aggregates
             var str = $"Game: {this._id.Id}, HostHealth: {this._hostHealth}, player1Health:{this._player1Health}, status:{this._status}";
             return str;
         }
+    }
+
+    public enum GameStatus
+    {
+        None = 0,
+        Created = 1,
+        Started = 2,
+        Stoped = 3
     }
 }

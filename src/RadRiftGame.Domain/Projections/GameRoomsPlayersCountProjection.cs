@@ -3,7 +3,7 @@ using RadRiftGame.Infrastructure;
 
 namespace RadRiftGame.Domain.Projections
 {
-    public class GameRoomsWithTwoPlayersProjection :
+    public class GameRoomsPlayersCountProjection :
         Handles<UserJoinedGameRoom>,
         Handles<GameRoomCreated>
     {

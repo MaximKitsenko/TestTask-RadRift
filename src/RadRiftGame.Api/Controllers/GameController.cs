@@ -18,16 +18,17 @@ namespace RadRiftGame.Controllers
         private FakeBus _bus;
         private IReadModelFacade _readmodel;
         private IGameProcessService _gameProcessService;
-        public readonly IRepository<GameRoom> Repository;
+        private readonly IRepository<GameRoom> _repository;
 
 
-        public GameController(FakeBus bus, IReadModelFacade readmodel, IGameProcessService gameProcessService, IRepository<GameRoom> repository)
+        public GameController(FakeBus bus, IReadModelFacade readmodel, IGameProcessService gameProcessService, IRepository<GameRoom> repository, IServiceProvider provider)
         {
             // todo: inject it
             _bus = bus;
             _readmodel = readmodel;
             _gameProcessService = gameProcessService;
-            Repository = repository;
+            _repository = repository;
+            //_repository.SetServiceProvider(provider);
             _gameProcessService.Stub();
         }
 
@@ -44,7 +45,7 @@ namespace RadRiftGame.Controllers
         public OkObjectResult CreateGameRoom([FromBody] CreateGameRoomRequest request)
         {
             var gameRoomId = Guid.NewGuid();
-            _bus.Send(new CreateGameRoom(new GameRoomId(gameRoomId), request.Name, SysInfo.CreateSysInfo()));
+            _bus.Send(new CreateGameRoom(new GameRoomId(gameRoomId), request.Name, new UserId(request.HostUserId) , SysInfo.CreateSysInfo()));
 
             return Ok(new {GameRoomid = gameRoomId});
         }
@@ -63,7 +64,7 @@ namespace RadRiftGame.Controllers
         [Route("api/game/{guid}")]
         public OkObjectResult GetGameRoomInfo(Guid guid)
         {
-            var room = Repository.GetById(guid);
+            var room = _repository.GetById(guid);
             return Ok(room.ToString());
         }
         

@@ -1,4 +1,5 @@
-﻿using RadRiftGame.Contracts.ValueObjects;
+﻿using System;
+using RadRiftGame.Contracts.ValueObjects;
 using RadRiftGame.Infrastructure;
 
 namespace RadRiftGame.Contracts.Commands
@@ -16,6 +17,7 @@ namespace RadRiftGame.Contracts.Commands
             UserId = userId;
             SysInfo = sysInfo;
             HealthDec = healthDec;
+            Console.WriteLine($"Decrease Health {UserId.Id} for {healthDec} point");
         }
     }
 }

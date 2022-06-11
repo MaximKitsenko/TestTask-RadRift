@@ -38,8 +38,13 @@ namespace RadRiftGame.Domain.Services
             {
                 try
                 {
-                    var rooms = _readModel.GetChatRooms().Where(x=>x.Value>1).ToList();
-                    var users = _readModel.GetChatRoomsUsers().ToList();
+                    var rooms = _readModel
+                        .GetChatRooms()
+                        .Where(x=>x.Value>1)
+                        .ToList();
+                    var users = _readModel
+                        .GetChatRoomsUsers()
+                        .ToList();
 
                     var roomsWith2Users = (from r in rooms
                         join u in
@@ -47,9 +52,10 @@ namespace RadRiftGame.Domain.Services
             
                     foreach (var room in roomsWith2Users)
                     {
-                        var user = _rndUser.Next(0, 1);
-                        var health = _rndUser.Next(0, 2);
-                        _fakeBus.Send(new DecreaseUserHealth(room.Key, room.Value[user], SysInfo.CreateSysInfo(), health));
+                        var user = _rndUser.Next(0, 2);
+                        var health = _rndUser.Next(0, 3);
+                        var roomUsers = room.Value;
+                        _fakeBus.Send(new DecreaseUserHealth(room.Key, roomUsers[user], SysInfo.CreateSysInfo(), health));
                     }
                 }
                 finally

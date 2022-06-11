@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace RadRiftGame.Infrastructure
 {
     public abstract class AggregateRoot
     {
         private readonly List<Event> _changes = new List<Event>();
-
+        public IServiceProvider srvProvider;
         public abstract Guid Id { get; }
         public int Version { get; internal set; }
 

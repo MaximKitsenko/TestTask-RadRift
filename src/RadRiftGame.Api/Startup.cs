@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +18,8 @@ using RadRiftGame.Domain;
 using RadRiftGame.Domain.Aggregates;
 using RadRiftGame.Domain.Projections;
 using RadRiftGame.Domain.Services;
+using RadRiftGame.Domain.Services.Db;
+using RadRiftGame.Domain.Services.ReportService;
 using RadRiftGame.Infrastructure;
 using GameProcessService = RadRiftGame.Domain.Services.GameProcessService;
 
@@ -45,7 +48,7 @@ namespace RadRiftGame
             bus.RegisterHandler<DecreaseUserHealth>(commands.Handle);
             
             // Projections
-            var eventsCountDetailedByOneMinuteProjection = new GameRoomsWithTwoPlayersProjection();
+            var eventsCountDetailedByOneMinuteProjection = new GameRoomsPlayersCountProjection();
             bus.RegisterHandler<UserJoinedGameRoom>(eventsCountDetailedByOneMinuteProjection.Handle);
             bus.RegisterHandler<GameRoomCreated>(eventsCountDetailedByOneMinuteProjection.Handle);
 
@@ -58,7 +61,23 @@ namespace RadRiftGame
             services.AddSingleton<IReadModelFacade>(new ReadModelFacade());
             services.AddSingleton<IRepository<GameRoom>>(rep);
             services.AddSingleton<IGameProcessService, GameProcessService>();//(new GameProcessService(services.));
+            
             services.AddControllers();
+
+            services.AddDbContext<GamesDbContext>(
+                item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
+            
+            // ReportingSrv
+            var dbContextOptionsBuilder = new DbContextOptionsBuilder();
+            dbContextOptionsBuilder.UseSqlServer(Configuration.GetConnectionString("myconn"));
+            var gamesDbContext = new GamesDbContext(dbContextOptionsBuilder.Options);
+            var gameReportingSrb = new GameReportService( gamesDbContext);
+            services.AddSingleton<IGameReportService>(gameReportingSrb);//(new GameProcessService(services.));
+
+            // projections
+            var gameRoomsStatusProjectionExtended = new GameRoomsStatusProjectionExtended(gameReportingSrb);
+            bus.RegisterHandler<GameStopped>(gameRoomsStatusProjectionExtended.Handle);
+            bus.RegisterHandler<GameRoomCreated>(gameRoomsStatusProjectionExtended.Handle);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,12 +7,14 @@ namespace RadRiftGame.Contracts.Commands
     {
         public readonly GameRoomId GameId;
         public readonly string Name;
+        public readonly UserId HostUserId;
         public readonly SysInfo SysInfo;
 
-        public CreateGameRoom(GameRoomId gameId, string name, SysInfo sysInfo)
+        public CreateGameRoom(GameRoomId gameId, string name, UserId hostUserId, SysInfo sysInfo)
         {
             GameId = gameId;
             Name = name;
+            HostUserId = hostUserId;
             SysInfo = sysInfo;
         }
     }

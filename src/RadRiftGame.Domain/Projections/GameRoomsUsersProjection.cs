@@ -5,7 +5,7 @@ using RadRiftGame.Infrastructure;
 
 namespace RadRiftGame.Domain.Projections
 {
-    public class GameRoomsHealthService :
+    public class GameRoomsUsersProjection :
         Handles<UserJoinedGameRoom>,
         Handles<GameRoomCreated>
     {

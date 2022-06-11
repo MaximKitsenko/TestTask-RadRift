@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace RadRiftGame.Infrastructure
 {
@@ -18,7 +19,7 @@ namespace RadRiftGame.Infrastructure
 
         public T GetById(Guid id)
         {
-            var obj = new T();//lots of ways to do this
+            var obj = new T() {};//lots of ways to do this
             var e = _storage.GetEventsForAggregate(id);
             obj.LoadsFromHistory(e);
             return obj;

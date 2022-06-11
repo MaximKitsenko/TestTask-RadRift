@@ -11,5 +11,9 @@
       <ProjectReference Include="..\RadRiftGame.Infrastructure\RadRiftGame.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.25" />
+    </ItemGroup>
+
 
 </Project>

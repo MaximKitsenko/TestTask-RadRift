@@ -28,7 +28,6 @@ namespace RadRiftGame.Controllers
             _readmodel = readmodel;
             _gameProcessService = gameProcessService;
             _repository = repository;
-            //_repository.SetServiceProvider(provider);
             _gameProcessService.Stub();
         }
 

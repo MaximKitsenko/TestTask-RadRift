@@ -72,11 +72,6 @@ namespace RadRiftGame
                 item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             
             // ReportingSrv
-            // var dbContextOptionsBuilder = new DbContextOptionsBuilder();
-            // dbContextOptionsBuilder.UseSqlServer(Configuration.GetConnectionString("myconn"));
-            // var gamesDbContext = new GamDbContext2(dbContextOptionsBuilder.Options);
-            // var gameReportingSrb = new GameReportService( gamesDbContext);
-            // services.AddSingleton<IGameReportService>(gameReportingSrb);//(new GameProcessService(services.));
             var gameReportingSrb = new GameReportService( new GamDbContext2());
             services.AddSingleton<IGameReportService>(gameReportingSrb);
 

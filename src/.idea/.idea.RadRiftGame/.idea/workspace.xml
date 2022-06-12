@@ -148,7 +148,7 @@
       <updated>1653928777087</updated>
       <workItem from="1653928796911" duration="34000" />
       <workItem from="1653928925876" duration="47586000" />
-      <workItem from="1654955347556" duration="16632000" />
+      <workItem from="1654955347556" duration="17006000" />
     </task>
     <servers />
   </component>
@@ -166,26 +166,26 @@
       <breakpoints>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/RadRiftGame.Api/Controllers/GameController.cs</url>
-          <line>58</line>
+          <line>57</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Api\Controllers\GameController.cs" initialLine="46" containingFunctionPresentation="method 'JoinGameRoom'">
             <startOffsets>
-              <option value="1985" />
+              <option value="1929" />
             </startOffsets>
             <endOffsets>
-              <option value="1987" />
+              <option value="1931" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/RadRiftGame.Api/Controllers/GameController.cs</url>
-          <line>75</line>
+          <line>74</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Api\Controllers\GameController.cs" initialLine="56" containingFunctionPresentation="method 'JoinGameRoom'">
             <startOffsets>
-              <option value="2418" />
+              <option value="2362" />
             </startOffsets>
             <endOffsets>
-              <option value="2537" />
+              <option value="2481" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />

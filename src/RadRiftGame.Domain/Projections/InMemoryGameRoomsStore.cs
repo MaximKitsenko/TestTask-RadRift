@@ -14,8 +14,9 @@ namespace RadRiftGame.Domain.Projections
         public static ConcurrentDictionary<GameRoomId, List<UserId>> RoomUsersIndex =
             new ConcurrentDictionary<GameRoomId, List<UserId>>();
         
-        public static ConcurrentDictionary<GameRoomId, GameStatus> RoomsstartedUsersIndex =
-            new ConcurrentDictionary<GameRoomId, GameStatus>();
+        //https://stackoverflow.com/questions/18922985/concurrent-hashsett-in-net-framework
+        public static ConcurrentDictionary<GameRoomId, byte> RoomsstartedUsersIndex =
+            new ConcurrentDictionary<GameRoomId, byte>();
         
         public static ConcurrentDictionary<GameRoomId, ConcurrentDictionary<UserId,int>> UsersHealth =
             new ConcurrentDictionary<GameRoomId, ConcurrentDictionary<UserId,int>>();

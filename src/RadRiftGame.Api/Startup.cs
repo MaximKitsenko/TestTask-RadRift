@@ -55,12 +55,16 @@ namespace RadRiftGame
             var eventsCountDetailedByOneMinuteProjectionExtended = new GameRoomsWithTwoPlayersProjectionExtended();
             bus.RegisterHandler<UserJoinedGameRoom>(eventsCountDetailedByOneMinuteProjectionExtended.Handle);
             bus.RegisterHandler<GameRoomCreated>(eventsCountDetailedByOneMinuteProjectionExtended.Handle);
+            
+            var gameRoomsStatusProjection = new GameRoomsStatusProjection();
+            bus.RegisterHandler<UserJoinedGameRoom>(gameRoomsStatusProjection.Handle);
+            bus.RegisterHandler<GameStopped>(gameRoomsStatusProjection.Handle);
 
             // Dependencies
             services.AddSingleton<FakeBus>(bus);
             services.AddSingleton<IReadModelFacade>(new ReadModelFacade());
             services.AddSingleton<IRepository<GameRoom>>(rep);
-            services.AddSingleton<IGameProcessService, GameProcessService>();//(new GameProcessService(services.));
+            services.AddSingleton<IGameProcessService, GameProcessService>();
             
             services.AddControllers();
 
@@ -77,7 +81,7 @@ namespace RadRiftGame
             services.AddSingleton<IGameReportService>(gameReportingSrb);
 
             // projections
-            var gameRoomsStatusProjectionExtended = new GameRoomsStatusProjectionExtended(gameReportingSrb);
+            var gameRoomsStatusProjectionExtended = new GameRoomsReportingProjection(gameReportingSrb, rep);
             bus.RegisterHandler<GameStopped>(gameRoomsStatusProjectionExtended.Handle);
             bus.RegisterHandler<GameRoomCreated>(gameRoomsStatusProjectionExtended.Handle);
         }

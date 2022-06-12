@@ -19,6 +19,13 @@ namespace RadRiftGame.Domain.Aggregates
         private decimal _player1Health;
         private GameStatus _status;
 
+        public GameRoomId GameId => _id;
+        public UserId Host => _host;
+        public UserId Player1 => _player1;
+        public decimal HostHealth => _hostHealth;
+        public decimal PlayerHealth => _player1Health;
+        public GameStatus GameStatus => _status;
+
         public void Apply(GameRoomCreated e)
         {
             this._id = e.Id;

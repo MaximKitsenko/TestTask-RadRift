@@ -38,15 +38,20 @@ namespace RadRiftGame.Domain.Services
             {
                 try
                 {
-                    var rooms = _readModel
-                        .GetChatRooms()
-                        .Where(x=>x.Value>1)
+                    // var rooms = _readModel
+                    //     .GetChatRooms()
+                    //     .Where(x=>x.Value>1)
+                    //     .ToList();
+                        
+                    var roomsInGame = _readModel
+                        .GetJoinedButNotStoppedGames()
                         .ToList();
+                    
                     var users = _readModel
                         .GetChatRoomsUsers()
                         .ToList();
 
-                    var roomsWith2Users = (from r in rooms
+                    var roomsWith2Users = (from r in roomsInGame
                         join u in
                             users on r.Key equals u.Key select u).ToList();
             

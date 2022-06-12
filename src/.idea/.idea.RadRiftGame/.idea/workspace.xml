@@ -31,6 +31,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/94ff83bbd4f34d52a6bb3c424720b0cf29588/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab706c87cf6244448e6824280ecd4ef6503990/8B/UpdateDelegates.Generated.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b7b77e6034f4f36b6c39c10ef27b2c891e590/80/Guid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e5727829617e45b2b54c64f62c5c942717d7a8/A/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5b7b77e6034f4f36b6c39c10ef27b2c891e590/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadRiftGame.Contracts/ValueObjects/SysInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RadRiftGame.Infrastructure/Handles.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,11 +56,12 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34993446" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30013105" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.48885977" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.47935367" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.RadRiftGame.Api">
@@ -146,7 +148,7 @@
       <updated>1653928777087</updated>
       <workItem from="1653928796911" duration="34000" />
       <workItem from="1653928925876" duration="47586000" />
-      <workItem from="1654955347556" duration="10981000" />
+      <workItem from="1654955347556" duration="13780000" />
     </task>
     <servers />
   </component>
@@ -213,6 +215,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/RadRiftGame.Domain/Services/ReportService/GameReportService.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Services\ReportService\GameReportService.cs" initialLine="16" containingFunctionPresentation="method 'ReportGameResult'">
+            <startOffsets>
+              <option value="483" />
+            </startOffsets>
+            <endOffsets>
+              <option value="524" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/RadRiftGame.Domain/Services/ReportService/GameReportService.cs</url>
+          <line>18</line>
+          <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Services\ReportService\GameReportService.cs" initialLine="17" containingFunctionPresentation="method 'ReportGameResult'">
+            <startOffsets>
+              <option value="537" />
+            </startOffsets>
+            <endOffsets>
+              <option value="566" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/RadRiftGame.Domain/Services/ReportService/GameReportService.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Services\ReportService\GameReportService.cs" initialLine="18" containingFunctionPresentation="method 'ReportGameResult'">
+            <startOffsets>
+              <option value="575" />
+            </startOffsets>
+            <endOffsets>
+              <option value="576" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

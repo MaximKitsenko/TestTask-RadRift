@@ -1,9 +1,10 @@
-﻿using RadRiftGame.Domain.Aggregates;
+﻿using System;
+using RadRiftGame.Domain.Aggregates;
 using RadRiftGame.Domain.Services.Db;
 
 namespace RadRiftGame.Domain.Services.ReportService
 {
-    public class GameReportService:IGameReportService
+    public class GameReportService:IGameReportService, IDisposable
     {
         private GamesDbContext GamesDbContext { get; }
 
@@ -15,6 +16,12 @@ namespace RadRiftGame.Domain.Services.ReportService
         public void ReportGameResult(GameResult gameRoom)
         {
             GamesDbContext.GameResults.Add(gameRoom);
+            GamesDbContext.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            GamesDbContext?.Dispose();
         }
     }
 }

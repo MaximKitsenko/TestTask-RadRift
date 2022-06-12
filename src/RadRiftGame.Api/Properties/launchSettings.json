@@ -24,6 +24,9 @@
       "applicationUrl": "https://localhost:5031;http://localhost:5030",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "ConnectionStrings": {
+        "myconn": "server=127.0.0.1; database=GameDB;Trusted_Connection=False;User Id=sa;Password=yourStrong(!)Password"
       }
     }
   }

@@ -1,4 +1,4 @@
-using RadRiftGame.Domain.Services.Db;
+using RadRiftGame.Domain.DbModels;
 
 namespace RadRiftGame.Domain.Services.ReportService
 {

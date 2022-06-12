@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using RadRiftGame.Domain.Aggregates;
 
-namespace RadRiftGame.Domain.Services.Db
+namespace RadRiftGame.Domain.DbModels
 {
     public class GameResult  
     {  

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using RadRiftGame.Contracts.Events;
 using RadRiftGame.Contracts.ValueObjects;
 using RadRiftGame.Domain.Services;
-using RadRiftGame.Domain.Services.Db;
 using RadRiftGame.Domain.Services.ReportService;
 using RadRiftGame.Infrastructure;
 

@@ -18,7 +18,6 @@ using RadRiftGame.Domain;
 using RadRiftGame.Domain.Aggregates;
 using RadRiftGame.Domain.Projections;
 using RadRiftGame.Domain.Services;
-using RadRiftGame.Domain.Services.Db;
 using RadRiftGame.Domain.Services.ReportService;
 using RadRiftGame.Infrastructure;
 using GameProcessService = RadRiftGame.Domain.Services.GameProcessService;

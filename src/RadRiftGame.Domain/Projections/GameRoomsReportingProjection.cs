@@ -1,6 +1,6 @@
 ﻿using RadRiftGame.Contracts.Events;
 using RadRiftGame.Domain.Aggregates;
-using RadRiftGame.Domain.Services.Db;
+using RadRiftGame.Domain.DbModels;
 using RadRiftGame.Domain.Services.ReportService;
 using RadRiftGame.Infrastructure;
 

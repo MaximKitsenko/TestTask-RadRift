@@ -148,7 +148,7 @@
       <updated>1653928777087</updated>
       <workItem from="1653928796911" duration="34000" />
       <workItem from="1653928925876" duration="47586000" />
-      <workItem from="1654955347556" duration="17006000" />
+      <workItem from="1654955347556" duration="18111000" />
     </task>
     <servers />
   </component>
@@ -205,13 +205,13 @@
         </line-breakpoint>
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/RadRiftGame.Domain/Aggregates/GameRoom.cs</url>
-          <line>59</line>
+          <line>58</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Aggregates\GameRoom.cs" initialLine="29" containingFunctionPresentation="method 'EnterUser'">
             <startOffsets>
-              <option value="1821" />
+              <option value="1783" />
             </startOffsets>
             <endOffsets>
-              <option value="1871" />
+              <option value="1833" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />

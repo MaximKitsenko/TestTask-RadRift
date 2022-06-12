@@ -6,16 +6,16 @@ namespace RadRiftGame.Domain.Services.ReportService
 {
     public class GameReportService:IGameReportService, IDisposable
     {
-        private GamesDbContext GamesDbContext { get; }
+        private GamDbContext2 GamesDbContext { get; }
 
-        public GameReportService(GamesDbContext gamesDbContext)
+        public GameReportService(GamDbContext2 gamesDbContext)
         {
             GamesDbContext = gamesDbContext;
         }
 
         public void ReportGameResult(GameResult gameRoom)
         {
-            GamesDbContext.GameResults.Add(gameRoom);
+            GamesDbContext.GamesResults.Add(gameRoom);
             GamesDbContext.SaveChanges();
         }
 

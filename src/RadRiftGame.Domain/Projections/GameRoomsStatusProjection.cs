@@ -33,8 +33,6 @@ namespace RadRiftGame.Domain.Projections
 
         public void Handle(GameRoomCreated message)
         {
-            InMemoryKvStore
-                .RoomUsersIndex[message.Id] = new List<UserId>() {message.SysInfo.UserId};
         }
     }
 }

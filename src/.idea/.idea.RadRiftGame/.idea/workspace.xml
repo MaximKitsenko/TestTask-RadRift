@@ -148,7 +148,7 @@
       <updated>1653928777087</updated>
       <workItem from="1653928796911" duration="34000" />
       <workItem from="1653928925876" duration="47586000" />
-      <workItem from="1654955347556" duration="13780000" />
+      <workItem from="1654955347556" duration="14816000" />
     </task>
     <servers />
   </component>
@@ -221,10 +221,10 @@
           <line>17</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Services\ReportService\GameReportService.cs" initialLine="16" containingFunctionPresentation="method 'ReportGameResult'">
             <startOffsets>
-              <option value="483" />
+              <option value="481" />
             </startOffsets>
             <endOffsets>
-              <option value="524" />
+              <option value="523" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="18" />
@@ -234,10 +234,10 @@
           <line>18</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Services\ReportService\GameReportService.cs" initialLine="17" containingFunctionPresentation="method 'ReportGameResult'">
             <startOffsets>
-              <option value="537" />
+              <option value="536" />
             </startOffsets>
             <endOffsets>
-              <option value="566" />
+              <option value="565" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
@@ -247,10 +247,10 @@
           <line>19</line>
           <properties documentPath="C:\max-projects\RadRiftGame\src\RadRiftGame.Domain\Services\ReportService\GameReportService.cs" initialLine="18" containingFunctionPresentation="method 'ReportGameResult'">
             <startOffsets>
-              <option value="575" />
+              <option value="574" />
             </startOffsets>
             <endOffsets>
-              <option value="576" />
+              <option value="575" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="22" />

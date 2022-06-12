@@ -64,15 +64,17 @@ namespace RadRiftGame
             
             services.AddControllers();
 
-            services.AddDbContext<GamesDbContext>(
+            services.AddDbContext<GamDbContext2>(
                 item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             
             // ReportingSrv
-            var dbContextOptionsBuilder = new DbContextOptionsBuilder();
-            dbContextOptionsBuilder.UseSqlServer(Configuration.GetConnectionString("myconn"));
-            var gamesDbContext = new GamesDbContext(dbContextOptionsBuilder.Options);
-            var gameReportingSrb = new GameReportService( gamesDbContext);
-            services.AddSingleton<IGameReportService>(gameReportingSrb);//(new GameProcessService(services.));
+            // var dbContextOptionsBuilder = new DbContextOptionsBuilder();
+            // dbContextOptionsBuilder.UseSqlServer(Configuration.GetConnectionString("myconn"));
+            // var gamesDbContext = new GamDbContext2(dbContextOptionsBuilder.Options);
+            // var gameReportingSrb = new GameReportService( gamesDbContext);
+            // services.AddSingleton<IGameReportService>(gameReportingSrb);//(new GameProcessService(services.));
+            var gameReportingSrb = new GameReportService( new GamDbContext2());
+            services.AddSingleton<IGameReportService>(gameReportingSrb);
 
             // projections
             var gameRoomsStatusProjectionExtended = new GameRoomsStatusProjectionExtended(gameReportingSrb);
@@ -85,7 +87,7 @@ namespace RadRiftGame
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetRequiredService<GamesDbContext>();
+                var context = serviceScope.ServiceProvider.GetRequiredService<GamDbContext2>();
                 context.Database.Migrate();
             }
             
